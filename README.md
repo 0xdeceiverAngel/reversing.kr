@@ -24,3 +24,14 @@ print(name)
 ```
 
 K3yg3nm3
+## Easy_UnpackMe
+脫殼脫起來
+>OEP 的全名是Original Entry Point．表示程式的入口點．
+如果程式有加殼的話，會改變真正的OEP．要透過脫殼才可以找到真正的OEP(來源網上)
+
+丟ida或是動態都可以
+丟動態要多一點耐心
+
+![](https://github.com/0xdeciverAngel/reversing.kr/raw/master/Easy_UnpackMe.png)
+
+401150
