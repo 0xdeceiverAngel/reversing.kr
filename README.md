@@ -35,3 +35,32 @@ K3yg3nm3
 ![](https://github.com/0xdeciverAngel/reversing.kr/raw/master/Easy_UnpackMe.png)
 
 401150
+
+## Music_Player
+
+這題是用VB寫的
+函數根本不熟 ㄏㄏ
+動態分析一下
+
+有兩個地方要過
+第一個是 1min 限制
+第二個是 error視窗
+
+第一個改成 
+>00404563 || cmp eax,EA60                 ;0xEA60==6000
+00404568 || mov dword ptr ss:[ebp-18],eax  
+0040456B || jmp music_player1.4045FE     
+
+第二個地方 因為我用x32dbg
+會直接跳到ntdll裡面
+右鍵-前往-上一個引用
+找到
+>004046B9 | call dword ptr ds:[<&__vbaHresultCheckObj>]  
+
+直接用nop填掉
+
+之後重新patch存檔 重新執行就看到了
+
+
+
+LIstenCare
