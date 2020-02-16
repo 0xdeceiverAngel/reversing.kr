@@ -62,5 +62,37 @@ K3yg3nm3
 之後重新patch存檔 重新執行就看到了
 
 
-
 LIstenCare
+## replace 
+![](https://github.com/0xdeciverAngel/reversing.kr/raw/master/replace1.png)
+
+>eax存到 0x4084d0
+不重要運算
++1
++1
++0x601605C7
+不重要運算
++1
++1
+
+![](https://github.com/0xdeciverAngel/reversing.kr/raw/master/replace2.png)
+
+加起來等於 0x601605cb
+
+0x401071 0x401072 要改成 nop 不然跳不到 correct
+
+又因為 
+
+把0x4084d0 值取出來到 eax
+所以我們 可以`輸入+0x601605cb==0x401071` 讓eax 變成 0x401071 就可以改成nop 
+
+又剛好執行2次 71 72 都可以改成nop
+
+>python 0x401072-0x601605CB+0xFFFFFFFF==2687109798
+
+這邊要 bufflow
+
+2687109798
+
+註:
+![](https://github.com/0xdeciverAngel/reversing.kr/raw/master/replace3.png)
